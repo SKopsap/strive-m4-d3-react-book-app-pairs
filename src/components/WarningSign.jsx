@@ -5,19 +5,22 @@ class WarningSign extends React.Component {
     show: false,
   };
 
-  if(show) {
-    return (
-      <Alert
-        variant="danger"
-        onClose={() => this.setState({ show: false })}
-        dismissible
-      >
-        <Alert.Heading>{this.props.text}</Alert.Heading>
-        <p>{this.props.text}</p>
-      </Alert>
-    );
-  }
   render() {
+    const { show } = this.state;
+    const { text } = this.props;
+
+    if (show) {
+      return (
+        <Alert
+          variant="danger"
+          onClose={() => this.setState({ show: false })}
+          dismissible
+        >
+          <Alert.Heading>{text}</Alert.Heading>
+          <p>{text}</p>
+        </Alert>
+      );
+    }
     return (
       <>
         <Button onClick={() => this.setState({ show: true })}>
