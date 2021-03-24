@@ -1,38 +1,53 @@
 .App {
+  padding: 20px;
+  overflow-x: hidden;
+  text-transform: uppercase;
   text-align: center;
+  background-color: #996435;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: center !important;
+}
+.book {
+  margin-bottom: 50px;
+}
+.card {
+  transition: 0.25s ease;
+  background-color: #3d3c3c34 !important;
+  box-shadow: 1px 1px 20px;
+}
+.card:hover {
+  background-color: rgba(107, 107, 107, 0.445) !important;
+  box-shadow: inset 1px 1px 20px;
+}
+.card-body {
   color: white;
+  background-color: transparent;
 }
 
-.App-link {
-  color: #61dafb;
+.selected > .cart-body {
+  color: black !important;
+}
+.selected {
+  animation: zoominanout 1s linear infinite;
+  background-color: #292929 !important;
+  background-image: url("https://www.transparenttextures.com/patterns/purty-wood.png");
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes zoominanout {
+  0% {
+    transform: scale(1);
+    box-shadow: 1px 1px 20px 7px;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(1.01);
+    z-index: 1;
+    box-shadow: 3px 3px 20px 14px;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 1px 1px 20px 7px;
   }
 }
