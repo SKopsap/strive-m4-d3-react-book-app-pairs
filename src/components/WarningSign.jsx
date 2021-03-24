@@ -1,33 +1,16 @@
+import React, { useState } from "react";
 import { Alert, Button } from "react-bootstrap";
-import React from "react";
-class WarningSign extends React.Component {
-  state = {
-    show: false,
-  };
-
-  render() {
-    const { show } = this.state;
-    const { text } = this.props;
-
-    if (show) {
-      return (
-        <Alert
-          variant="danger"
-          onClose={() => this.setState({ show: false })}
-          dismissible
-        >
-          <Alert.Heading>{text}</Alert.Heading>
-          <p>{text}</p>
-        </Alert>
-      );
-    }
+function WarningSign({ text }) {
+  const [show, setShow] = useState(false);
+  if (show) {
     return (
-      <>
-        <Button onClick={() => this.setState({ show: true })}>
-          Show Alert
-        </Button>
-      </>
+      <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+        <Alert.Heading>{text}</Alert.Heading>
+        <p>{text}</p>
+      </Alert>
     );
   }
+  return <Button onClick={() => setShow(true)}>Show Alert</Button>;
 }
+
 export default WarningSign;

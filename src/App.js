@@ -11,17 +11,16 @@ import { fantasy } from "./assets/fantasy";
 class App extends Component {
   state = {
     fantasy: fantasy,
-    selected: false,
+
+    show: false,
   };
-  // toggleClass = () => {
-  //   this.setState({ selected: true });
-  // };
+
   render() {
     return (
       <div className="App">
-        <WarningSign text="no emotions allowed!" />
-        <MyBadge color="dark" text="be a robot" />
-        <BookList data={this.state} />
+        {/* <WarningSign show={this.state.show} text="no emotions allowed!" /> */}
+        {/* <MyBadge color="dark" text="be a robot" /> */}
+        <BookList fantasy={this.state.fantasy} />
       </div>
     );
   }

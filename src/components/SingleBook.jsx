@@ -1,15 +1,22 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
+import React, { useState } from "react";
+import { Card } from "react-bootstrap";
 
 const SingleBook = ({ title, img }) => {
+  const [shit, updatedShit] = useState(false);
+
+  const toggleClass = () => updatedShit(!shit);
   return (
-    <Card className="mt-3" style={{ width: '250px' }}>
+    <Card
+      onClick={toggleClass}
+      className={`mt-3 ${shit && "selected"}`}
+      style={{ width: "250px" }}
+    >
       <Card.Img src={img} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
-export default SingleBook
+export default SingleBook;
