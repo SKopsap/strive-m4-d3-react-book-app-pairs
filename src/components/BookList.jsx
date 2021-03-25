@@ -1,17 +1,21 @@
-import SingleBook from "./SingleBook";
+import SingleBook from './SingleBook'
 
-function BookList({ fantasy }) {
+function BookList({ fantasy, filterQuery }) {
   return (
     <div>
-      {fantasy.map((book) => {
-        return (
-          <div key={book.asin}>
-            <SingleBook name={book.asin} title={book.title} img={book.img} />
-          </div>
-        );
-      })}
+      {fantasy
+        .filter((book) =>
+          book.title.toLowerCase().includes(filterQuery.toLowerCase())
+        )
+        .map((book) => {
+          return (
+            <div key={book.asin}>
+              <SingleBook name={book.asin} title={book.title} img={book.img} />
+            </div>
+          )
+        })}
     </div>
-  );
+  )
 }
 
-export default BookList;
+export default BookList
